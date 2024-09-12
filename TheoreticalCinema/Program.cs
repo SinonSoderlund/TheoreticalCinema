@@ -20,8 +20,8 @@
                     case MenuSelector.TheRepeater:
                         UtilSpace.TheRepeater();
                         break;
-                        case MenuSelector.ThirdExtractor:
-                            UtilSpace.ThirdExtractor();
+                    case MenuSelector.ThirdExtractor:
+                        UtilSpace.ThirdExtractor();
                         break;
                     case MenuSelector.Exit:
                         quit = true;

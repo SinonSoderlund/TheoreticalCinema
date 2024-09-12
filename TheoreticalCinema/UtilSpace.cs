@@ -9,7 +9,7 @@ namespace TheoreticalCinema
 {
     namespace UtilitySpace
     {
-       
+
         public enum MenuSelector
         {
             TicketFinder = 1,
@@ -181,7 +181,7 @@ namespace TheoreticalCinema
             public static void TheRepeater()
             {
                 Console.WriteLine("Welcome to the repeater! Here you words (or non-words) will get repeated 10 times!");
-                string echo = GetInputString("Text!", "Please enter an arbitrary line of"), output="";
+                string echo = GetInputString("Text!", "Please enter an arbitrary line of"), output = "";
                 for (int i = 1; i < TARGET; i++)
                 {
                     output += $"{i}. {echo}, ";
@@ -199,7 +199,7 @@ namespace TheoreticalCinema
                 {
                     string input = GetInputString("Sentence", "Please input a valid");
                     MatchCollection matches = Regex.Matches(input, @"\S+");
-                    if(matches.Count < 3)
+                    if (matches.Count < 3)
                         Console.WriteLine("Please enter a sentence containing at least 3 words seperated by spaces.");
                     else
                     {
