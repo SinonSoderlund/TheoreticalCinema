@@ -28,7 +28,7 @@ namespace TheoreticalCinema
         }
         public static class UtilSpace
         {
-            private static readonly int TARGET = 11;
+            private static readonly int REPEATER_TARGET = 11;
             /// <summary>
             /// Function to request and retreive desired string type data from a user via console
             /// </summary>
@@ -37,18 +37,7 @@ namespace TheoreticalCinema
             /// <returns></returns>
             public static string GetInputString(string RequestedInput, bool acceptBlank = false)
             {
-                Console.WriteLine(RequestedInput);
-                if (!acceptBlank)
-                    while (true)
-                    {
-                        string input = Console.ReadLine();
-                        if (!string.IsNullOrWhiteSpace(input))
-                            return input;
-                        else
-                            ValidRequestor(RequestedInput);
-                    }
-                else
-                    return Console.ReadLine();
+                return GetInputString(RequestedInput, string.Empty, acceptBlank);
             }
             /// <summary>
             /// Function to request and retreive desired string type data from a user via console
@@ -59,7 +48,10 @@ namespace TheoreticalCinema
             /// <returns></returns>
             public static string GetInputString(string RequestedInput, string additionalPrompt, bool acceptBlank = false)
             {
-                Console.WriteLine($"{additionalPrompt} {RequestedInput}");
+                if(string.IsNullOrEmpty(additionalPrompt))
+                    Console.WriteLine(RequestedInput);
+                else
+                    Console.WriteLine($"{additionalPrompt} {RequestedInput}");
                 if (!acceptBlank)
                     while (true)
                     {
@@ -79,16 +71,7 @@ namespace TheoreticalCinema
             /// <returns></returns>
             public static int GetInputInt(string RequestedInput)
             {
-                while (true)
-                {
-                    int input;
-                    if (int.TryParse(GetInputString(RequestedInput), out input))
-                    {
-                        return input;
-                    }
-                    else
-                        ValidRequestor(RequestedInput);
-                }
+                return GetInputInt(RequestedInput, string.Empty);
             }
             /// <summary>
             ///  Runs GetInputString And then converts it into a valid int
@@ -183,7 +166,7 @@ namespace TheoreticalCinema
                 Console.WriteLine("Welcome to the repeater! Here you words (or non-words) will get repeated 10 times!");
                 string echo = GetInputString("Text!", "Please enter an arbitrary line of");
                 StringBuilder output = new StringBuilder();
-                for (int i = 1; i < TARGET; i++)
+                for (int i = 1; i < REPEATER_TARGET; i++)
                 {
                     output.Append($"{i}. {echo}, ");
                 }
