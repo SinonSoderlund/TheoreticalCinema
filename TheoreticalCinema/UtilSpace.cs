@@ -181,10 +181,11 @@ namespace TheoreticalCinema
             public static void TheRepeater()
             {
                 Console.WriteLine("Welcome to the repeater! Here you words (or non-words) will get repeated 10 times!");
-                string echo = GetInputString("Text!", "Please enter an arbitrary line of"), output = "";
+                string echo = GetInputString("Text!", "Please enter an arbitrary line of");
+                StringBuilder output = new StringBuilder();
                 for (int i = 1; i < TARGET; i++)
                 {
-                    output += $"{i}. {echo}, ";
+                    output.Append($"{i}. {echo}, ");
                 }
                 Console.WriteLine(output);
                 WaitToContinue();
